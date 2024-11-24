@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpg1i7hupxuca"]
+
+[ext_resource type="AudioStream" uid="uid://bgm3ryea0x020" path="res://sound/384645__morganpurkis__wood-footstep-2.wav" id="1_vwd12"]
+[ext_resource type="Script" path="res://button.gd" id="2_1fh0p"]
+
+[node name="test" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_vwd12")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 24.0
+offset_top = 27.0
+offset_right = 237.0
+offset_bottom = 120.0
+script = ExtResource("2_1fh0p")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="toggled" from="Button" to="Button" method="_on_toggled"]

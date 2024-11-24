@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://hrponpb2ksmp"]
+
+[ext_resource type="Texture2D" uid="uid://bqqm640uhjccv" path="res://sprites/idle1.png" id="1_a5do5"]
+[ext_resource type="Script" path="res://playerMovement.gd" id="1_rphs6"]
+[ext_resource type="Texture2D" uid="uid://cyjg5lq5t7qq1" path="res://sprites/idle2.png" id="2_qfn1q"]
+[ext_resource type="Texture2D" uid="uid://kqca8lxmekj8" path="res://sprites/walk1.png" id="4_m1fub"]
+[ext_resource type="Texture2D" uid="uid://50s7re4etgau" path="res://sprites/walk2.png" id="5_ihrmw"]
+[ext_resource type="Texture2D" uid="uid://dj3cvitcbufnl" path="res://sprites/walk3.png" id="6_l1blv"]
+[ext_resource type="Texture2D" uid="uid://bkkfi2itujreu" path="res://sprites/walk4.png" id="7_8ef14"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhffs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a5do5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qfn1q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_m1fub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ihrmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l1blv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8ef14")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o2yx4"]
+size = Vector2(26, 31)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rphs6")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 15)
+lifetime = 0.2
+randomness = 0.28
+direction = Vector2(0, 1)
+spread = 3.9
+gravity = Vector2(0, 1)
+initial_velocity_max = 10.0
+radial_accel_min = -87.7
+radial_accel_max = 35.05
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color = Color(0.313726, 0.313726, 0.313726, 0.682353)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_bhffs")
+animation = &"idle"
+frame_progress = 0.738178
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = -9999999
+limit_right = 1152
+limit_bottom = 648
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_o2yx4")

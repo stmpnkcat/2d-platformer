@@ -1,0 +1,271 @@
+[gd_scene load_steps=18 format=3 uid="uid://djh60w8qqi5m2"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_g5r6s"]
+[ext_resource type="PackedScene" uid="uid://hrponpb2ksmp" path="res://player.tscn" id="1_vj6t5"]
+[ext_resource type="PackedScene" uid="uid://b2mgv1yf7uep0" path="res://levels.tscn" id="2_0mtg6"]
+[ext_resource type="PackedScene" uid="uid://2quaebi4rr45" path="res://title.tscn" id="3_wr5uh"]
+[ext_resource type="Script" path="res://kill_thingy.gd" id="5_nabex"]
+[ext_resource type="PackedScene" uid="uid://djrkdupx50yf" path="res://door.tscn" id="6_a2yqc"]
+[ext_resource type="PackedScene" uid="uid://bq4a63xcoc52q" path="res://water_drop.tscn" id="7_1kkqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ehyq"]
+size = Vector2(8, 5000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuqpa"]
+size = Vector2(101.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prqq8"]
+size = Vector2(20, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcdu1"]
+size = Vector2(1185, 4)
+
+[sub_resource type="Animation" id="Animation_e6a7y"]
+resource_name = "death_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-6000, -2469), Vector2(1500, -2469)]
+}
+
+[sub_resource type="Animation" id="Animation_7vgvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6000, -2469)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvkqj"]
+_data = {
+"RESET": SubResource("Animation_7vgvx"),
+"death_1": SubResource("Animation_e6a7y")
+}
+
+[sub_resource type="Animation" id="Animation_teq1i"]
+resource_name = "death_anim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1433, -2469), Vector2(-6000, -2469)]
+}
+
+[sub_resource type="Animation" id="Animation_ds2de"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control2/ColorRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1433, -2469)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hwojq"]
+_data = {
+"RESET": SubResource("Animation_ds2de"),
+"death_anim": SubResource("Animation_teq1i")
+}
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_g5r6s")
+
+[node name="Levels" parent="." instance=ExtResource("2_0mtg6")]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(409, -641)
+
+[node name="WaterDrop" parent="Node2D" instance=ExtResource("7_1kkqn")]
+
+[node name="WaterDrop2" parent="Node2D" instance=ExtResource("7_1kkqn")]
+position = Vector2(118, 63)
+
+[node name="WaterDrop3" parent="Node2D" instance=ExtResource("7_1kkqn")]
+position = Vector2(451, 203)
+
+[node name="WaterDrop4" parent="Node2D" instance=ExtResource("7_1kkqn")]
+position = Vector2(513, 517)
+
+[node name="WaterDrop5" parent="Node2D" instance=ExtResource("7_1kkqn")]
+position = Vector2(41, 734)
+
+[node name="WaterDrop6" parent="Node2D" instance=ExtResource("7_1kkqn")]
+position = Vector2(-247, 907)
+
+[node name="WaterDrop7" parent="Node2D" instance=ExtResource("7_1kkqn")]
+position = Vector2(703, 811)
+
+[node name="Player" parent="." instance=ExtResource("1_vj6t5")]
+position = Vector2(-8, 716)
+
+[node name="Player2" parent="." instance=ExtResource("1_vj6t5")]
+position = Vector2(25, 718)
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="Left" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Left"]
+position = Vector2(-7, 12)
+shape = SubResource("RectangleShape2D_8ehyq")
+
+[node name="Middle" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Middle"]
+position = Vector2(576, 0)
+shape = SubResource("RectangleShape2D_8ehyq")
+
+[node name="ColorRect" type="ColorRect" parent="Borders/Middle"]
+offset_left = 571.0
+offset_top = -1554.0
+offset_right = 580.0
+offset_bottom = 685.0
+color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[node name="Right" type="StaticBody2D" parent="Borders"]
+position = Vector2(50, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Right"]
+position = Vector2(1107, 18)
+shape = SubResource("RectangleShape2D_8ehyq")
+
+[node name="jailDown" type="StaticBody2D" parent="Borders"]
+position = Vector2(72, 711)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/jailDown"]
+position = Vector2(-60, 42)
+shape = SubResource("RectangleShape2D_kuqpa")
+
+[node name="jailUp" type="StaticBody2D" parent="Borders"]
+position = Vector2(72, 711)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borders/jailUp"]
+position = Vector2(-60, -41)
+shape = SubResource("RectangleShape2D_kuqpa")
+
+[node name="jailLeft" type="StaticBody2D" parent="Borders"]
+position = Vector2(72, 711)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borders/jailLeft"]
+position = Vector2(-120, 1)
+shape = SubResource("RectangleShape2D_prqq8")
+
+[node name="jailRight" type="StaticBody2D" parent="Borders"]
+position = Vector2(72, 711)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borders/jailRight"]
+position = Vector2(-19, 1)
+shape = SubResource("RectangleShape2D_prqq8")
+
+[node name="kill thingy" type="Area2D" parent="."]
+script = ExtResource("5_nabex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill thingy"]
+position = Vector2(582.5, 644)
+shape = SubResource("RectangleShape2D_wcdu1")
+
+[node name="Door" parent="." instance=ExtResource("6_a2yqc")]
+position = Vector2(289, -575)
+
+[node name="Door2" parent="." instance=ExtResource("6_a2yqc")]
+position = Vector2(611, -641)
+
+[node name="Title" parent="." instance=ExtResource("3_wr5uh")]
+
+[node name="Win" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 864.0
+offset_top = -1344.0
+offset_right = 904.0
+offset_bottom = -1304.0
+
+[node name="ColorRect" type="ColorRect" parent="Win"]
+layout_mode = 0
+offset_left = -879.0
+offset_top = 1347.0
+offset_right = 306.0
+offset_bottom = 2000.0
+color = Color(0.299547, 0.299547, 0.299547, 1)
+
+[node name="Label" type="Label" parent="Win"]
+layout_mode = 0
+offset_left = -726.0
+offset_top = 1572.0
+offset_right = 135.0
+offset_bottom = 2011.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "You have made it out of 
+the tower! You Win!"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -201.0
+offset_right = 40.0
+offset_bottom = 214.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
+libraries = {
+"": SubResource("AnimationLibrary_rvkqj")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -6000.0
+offset_top = -2469.0
+offset_right = 156.0
+offset_bottom = 800.0
+color = Color(0, 0, 0, 1)
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -201.0
+offset_right = 40.0
+offset_bottom = 214.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control2"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_hwojq")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control2"]
+layout_mode = 0
+offset_left = 1433.0
+offset_top = -2469.0
+offset_right = 7589.0
+offset_bottom = 800.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="body_entered" from="kill thingy" to="." method="_on_kill_thingy_body_entered"]

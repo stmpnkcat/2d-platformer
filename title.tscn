@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://2quaebi4rr45"]
+
+[ext_resource type="Script" path="res://title.gd" id="1_1ta4c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pl5fa"]
+font_size = 46
+font_color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ta4c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1159.0
+offset_bottom = 648.0
+color = Color(0.446777, 0.446777, 0.446777, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 269.0
+offset_right = 1169.0
+offset_bottom = 528.0
+text = "how to climb a medium sized but pretty 
+deadly tower (featuring a clone of yourself)"
+label_settings = SubResource("LabelSettings_pl5fa")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 464.0
+offset_right = 732.0
+offset_bottom = 563.0
+theme_override_font_sizes/font_size = 66
+text = "Play"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 74.0
+offset_right = 939.0
+offset_bottom = 252.0
+theme_override_font_sizes/font_size = 130
+text = "Clone Climb"
+
+[connection signal="hidden" from="Label" to="." method="_on_label_hidden"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
