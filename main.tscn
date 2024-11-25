@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b2mgv1yf7uep0" path="res://levels.tscn" id="2_0mtg6"]
 [ext_resource type="PackedScene" uid="uid://2quaebi4rr45" path="res://title.tscn" id="3_wr5uh"]
 [ext_resource type="Script" path="res://kill_thingy.gd" id="5_nabex"]
-[ext_resource type="PackedScene" uid="uid://djrkdupx50yf" path="res://door.tscn" id="6_a2yqc"]
+[ext_resource type="PackedScene" path="res://door.tscn" id="6_a2yqc"]
 [ext_resource type="PackedScene" uid="uid://bq4a63xcoc52q" path="res://water_drop.tscn" id="7_1kkqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ehyq"]
@@ -243,9 +243,9 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 layout_mode = 0
-offset_left = 1500.0
+offset_left = -6000.0
 offset_top = -2469.0
-offset_right = 7656.0
+offset_right = 156.0
 offset_bottom = 800.0
 color = Color(0, 0, 0, 1)
 
@@ -264,9 +264,9 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="Control2"]
 layout_mode = 0
-offset_left = -6000.0
+offset_left = 1433.0
 offset_top = -2469.0
-offset_right = 156.0
+offset_right = 7589.0
 offset_bottom = 800.0
 color = Color(0, 0, 0, 1)
 

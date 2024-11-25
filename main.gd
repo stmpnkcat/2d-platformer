@@ -95,14 +95,12 @@ func spawn_movspikeS(position: Vector2):
 	
 	
 func reset1():
-	print("reset1")
 	$Control/AnimationPlayer.play("death_1")
 	await get_tree().create_timer(0.5).timeout
 	$Player.setPosition(playerPos)
 	$Player2.setPosition(player2Pos)
 
 func reset2():
-	print("reset2")
 	$Control2/AnimationPlayer.play("death_anim")
 	await get_tree().create_timer(0.5).timeout
 	$Player.setPosition(playerPos)
