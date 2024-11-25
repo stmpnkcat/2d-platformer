@@ -16,4 +16,5 @@ func _on_button_pressed() -> void:
 	$ColorRect.hide()
 	$Label.hide()
 	$Button.hide()
+	$Label2.hide()
 	

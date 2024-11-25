@@ -24,7 +24,7 @@ func _ready() -> void:
 	spawn_movspikeV(Vector2(860, -950))
 	spawn_movspikeV(Vector2(284, -1000))
 	
-	#nextLevel()
+	##nextLevel()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

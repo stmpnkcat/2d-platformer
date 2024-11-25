@@ -23,29 +23,29 @@ color = Color(0.446777, 0.446777, 0.446777, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 81.0
-offset_top = 269.0
-offset_right = 1169.0
-offset_bottom = 528.0
-text = "how to climb a medium sized but pretty 
-deadly tower (featuring a clone of yourself)"
+offset_left = 237.0
+offset_top = 299.0
+offset_right = 1325.0
+offset_bottom = 558.0
+text = "get to the top of the tower!!!!!
+keep your clone alive too"
 label_settings = SubResource("LabelSettings_pl5fa")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 380.0
+offset_left = 374.0
 offset_top = 464.0
-offset_right = 732.0
+offset_right = 726.0
 offset_bottom = 563.0
 theme_override_font_sizes/font_size = 66
 text = "Play"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 74.0
-offset_right = 939.0
-offset_bottom = 252.0
+offset_left = 188.0
+offset_top = 130.0
+offset_right = 937.0
+offset_bottom = 308.0
 theme_override_font_sizes/font_size = 130
 text = "Clone Climb"
 
